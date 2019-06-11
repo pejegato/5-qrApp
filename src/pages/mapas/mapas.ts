@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import { AgmCoreModule } from '@agm/core';
 
 /**
  * Generated class for the MapasPage page.
@@ -14,12 +15,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'mapas.html',
 })
 export class MapasPage {
+  lat:number;
+  lng:number;
+  constructor(public navParams: NavParams, private viewController: ViewController) {
+    this.lat = 51.678418;
+    this.lng = 7.809007;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log(this.navParams.get("coords"));
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MapasPage');
+  cerrarModal(){
+    this.viewController.dismiss();
   }
-
 }

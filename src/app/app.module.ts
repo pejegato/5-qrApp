@@ -7,13 +7,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from "../pages/tabs/tabs";
-import {GuardadosPage} from "../pages/guardados/guardados";
+import { GuardadosPage } from "../pages/guardados/guardados";
 
 import { HistorialProvider } from '../providers/historial/historial';
 
-//plugisn
+//plugins
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import {BarcodeScanner} from "@ionic-native/barcode-scanner";
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
+import { AgmCoreModule } from '@agm/core';
+import {MapasPage} from "../pages/mapas/mapas";
+import {MapasPageModule} from "../pages/mapas/mapas.module";
+
+
 
 @NgModule({
   declarations: [
@@ -21,20 +26,25 @@ import {BarcodeScanner} from "@ionic-native/barcode-scanner";
     TabsPage,
     HomePage,
     GuardadosPage
+
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBAgTyM_rY-bKJRPQnDZGZmM1gdP8sNooA'
+    }),
+    MapasPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     TabsPage,
     HomePage,
-    GuardadosPage
+    GuardadosPage,
+    MapasPage
   ],
   providers: [
-
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

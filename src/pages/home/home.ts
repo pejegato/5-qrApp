@@ -24,7 +24,8 @@ export class HomePage {
 
   scan(){
     if(!this.platform.is('cordova')){
-      this.historialProvider.agregar_historial("http://www.meristation.com");
+      //this.historialProvider.agregar_historial("http://www.meristation.com");
+      this.historialProvider.agregar_historial("geo:33.455948,70.6651342,21,500");
       return;
 
     }else{

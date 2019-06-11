@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import {ScanData} from "../../scan-data.model";
 import {InAppBrowser} from "@ionic-native/in-app-browser/ngx";
 
+//Modal
+import { ModalController } from "ionic-angular";
+
+
 /*
   Generated class for the HistorialProvider provider.
 
@@ -14,7 +18,8 @@ export class HistorialProvider {
 
   private _historial:ScanData[] = [];
 
-  constructor(private inAppBrowser: InAppBrowser) {
+  constructor(private inAppBrowser: InAppBrowser,
+              private modalController: ModalController) {
 
   }
 
@@ -29,7 +34,9 @@ export class HistorialProvider {
     let scanData = this._historial[index];
     switch (scanData.tipo) {
       case 'http':
-      this.inAppBrowser.create(scanData.info, "_system");
+        this.inAppBrowser.create(scanData.info, "_system");
+      case 'mapa':
+        this.modalController.create("MapasPage", {coords:scanData.info}).present();
     }
   }
   cargar_historial(){
