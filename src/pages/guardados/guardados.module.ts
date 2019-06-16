@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { GuardadosPage } from './guardados';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {GuardadosPage} from './guardados';
 
 @NgModule({
   declarations: [

@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { MapasPage } from './mapas';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {MapasPage} from './mapas';
 import {AgmCoreModule} from "@agm/core";
 
 @NgModule({

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage} from 'ionic-angular';
 import {HistorialProvider} from "../../providers/historial/historial";
 import {ScanData} from "../../scan-data.model";
 

@@ -10,21 +10,25 @@ import {IonicPage, NavParams, ViewController} from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-mapas',
-  templateUrl: 'mapas.html',
+  selector: 'page-mail',
+  templateUrl: 'mail.html',
 })
-export class MapasPage {
-  lat:number;
-  lng:number;
+export class MailPage {
+  to:string;
+  sub:string;
+  body:string;
   constructor(public navParams: NavParams, private viewController: ViewController) {
     // this.lat = 51.678418;
     // this.lng = 7.809007;
-    console.log(this.navParams.get("coords"));
-    let coordsArray = this.navParams.get("coords").split(",");
+    let coordsArray = this.navParams.get("mail").split(";");
 
-    this.lat = Number(coordsArray[0].replace("geo:",""));
-    this.lng = Number(coordsArray[0]);
+    this.to = coordsArray[0].replace("MATMSG:TO:","");
+    this.sub = coordsArray[1].replace("SUB:","");
+    this.body = coordsArray[2].replace("BODY:","");
 
+    console.log(this.to);
+    console.log(this.sub);
+    console.log(this.body);
   }
 
   cerrarModal(){
